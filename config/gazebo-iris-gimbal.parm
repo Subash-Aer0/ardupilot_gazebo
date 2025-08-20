@@ -30,6 +30,3 @@ RC8_OPTION       214         # Mount1 Yaw
 SERVO9_FUNCTION  8           # Mount1Roll
 SERVO10_FUNCTION 7           # Mount1Pitch
 SERVO11_FUNCTION 6           # Mount1Yaw
-
-FOLL_ENABLE 1
-FOLL_SYSID  0
