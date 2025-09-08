@@ -4,7 +4,7 @@
 
     <link name="base_link">
 
-      <visual name='aruco_visual'>
+      <!-- <visual name='aruco_visual'>
         <pose>-15 -2.5 1.5 0 0 0</pose>
         <geometry>
           <mesh>
@@ -12,7 +12,17 @@
             <uri>meshes/aruco_tag_124.obj</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
+
+      <!-- <visual>
+        <pose>-15 -2.5 1.5 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>5 5 5</scale>
+            <uri>meshes/cone.stl</uri>
+          </mesh>
+        </geometry>
+      </visual> -->
 
       <!-- <include>
         <uri>model://aruco_tag_124</uri>
@@ -47,7 +57,8 @@
         <geometry>
           <mesh>
             <scale>50 50 50</scale>
-            <uri>meshes/main_deck.dae</uri>
+            <!-- <uri>meshes/deck_reeler.dae</uri> -->
+            <uri>meshes/mooring_main_deck.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -55,7 +66,8 @@
         <geometry>
           <mesh>
             <scale>50 50 50</scale>
-            <uri>meshes/main_deck_sides.dae</uri>
+            <!-- <uri>meshes/main_deck_sides.dae</uri> -->
+            <uri>meshes/havyard_deck_sides.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -71,7 +83,7 @@
         <geometry>
           <mesh>
             <scale>50 50 50</scale>
-            <uri>meshes/b_deck.dae</uri>
+            <uri>meshes/b_deck_updated.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -79,7 +91,7 @@
         <geometry>
           <mesh>
             <scale>50 50 50</scale>
-            <uri>meshes/c_deck.dae</uri>
+            <uri>meshes/c_deck_updated.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -87,7 +99,7 @@
         <geometry>
           <mesh>
             <scale>50 50 50</scale>
-            <uri>meshes/wheelhouse_roof.dae</uri>
+            <uri>meshes/wheelhouse_roof_updated.dae</uri>
           </mesh>
         </geometry>
       </visual>
