@@ -623,7 +623,7 @@
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -640,7 +640,7 @@
       <link_name>iris_with_standoffs::rotor_0</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -658,7 +658,7 @@
     </plugin>
 
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -675,7 +675,7 @@
       <link_name>iris_with_standoffs::rotor_1</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -693,7 +693,7 @@
     </plugin>
 
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -710,7 +710,7 @@
       <link_name>iris_with_standoffs::rotor_2</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -728,7 +728,7 @@
     </plugin>
 
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
@@ -745,7 +745,7 @@
       <link_name>iris_with_standoffs::rotor_3</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
-        name="gz::sim::systems::LiftDrag">
+      name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>

@@ -4,6 +4,31 @@
 
     <link name="base_link">
 
+      <!-- <visual name='aruco_visual'>
+        <pose>-15 -2.5 1.5 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>5 5 5</scale>
+            <uri>meshes/aruco_tag_124.obj</uri>
+          </mesh>
+        </geometry>
+      </visual> -->
+
+      <!-- <visual>
+        <pose>-15 -2.5 1.5 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>5 5 5</scale>
+            <uri>meshes/cone.stl</uri>
+          </mesh>
+        </geometry>
+      </visual> -->
+
+      <!-- <include>
+        <uri>model://aruco_tag_124</uri>
+        <pose degrees="true">-12 0 1.5 0 0 0</pose>
+      </include> -->
+
       <visual name="hull">
         <geometry>
           <mesh>
@@ -34,8 +59,7 @@
             <scale>50 50 50</scale>
             <!-- <uri>meshes/deck_reeler.dae</uri> -->
             <!-- <uri>meshes/mooring_main_deck.dae</uri> -->
-            <!-- <uri>meshes/mooring_front_main_deck.dae</uri> -->
-            <uri>meshes/havyard2_main_deck2.dae</uri>
+            <uri>meshes/mooring_front_main_deck.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -80,6 +104,49 @@
           </mesh>
         </geometry>
       </visual>
+
+      <!-- Leave axes visuals for debugging -->
+      <!--
+      <visual name="base_x_axis">
+        <pose>25 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>50 0.1 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1.0 0.0 0.0 1.0</ambient>
+          <diffuse>1.0 0.0 0.0 1.0</diffuse>
+          <specular>0.8 0.8 0.8 1.0</specular>
+        </material>
+      </visual>
+      <visual name="base_y_axis">
+        <pose>0 10 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 20 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 1.0 0.0 1.0</ambient>
+          <diffuse>0.0 1.0 0.0 1.0</diffuse>
+          <specular>0.8 0.8 0.8 1.0</specular>
+        </material>
+      </visual>
+      <visual name="base_z_axis">
+        <pose>0 0 10 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1 20</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.0 0.0 1.0 1.0</ambient>
+          <diffuse>0.0 0.0 1.0 1.0</diffuse>
+          <specular>0.8 0.8 0.8 1.0</specular>
+        </material>
+      </visual>
+      -->
 
       <collision name="hull_collision">
         <geometry>
@@ -398,7 +465,7 @@
       <!--
         SERVO1_FUNCTION 26 (GroundSteering)
       -->
-      <!-- <control channel="0">
+      <control channel="0">
         <jointName>left_engine_joint</jointName>
         <useForce>1</useForce>
         <multiplier>1.5707963267948966</multiplier>
@@ -429,12 +496,12 @@
         <i_min>0</i_min>
         <cmd_max>1000000.0</cmd_max>
         <cmd_min>-1000000.0</cmd_min>
-      </control> -->
+      </control>
 
       <!--
         SERVO3_FUNCTION 70 (Throttle)
       -->
-      <!-- <control channel="2">
+      <control channel="2">
         <jointName>left_propeller_joint</jointName>
         <useForce>1</useForce>
         <multiplier>2000000</multiplier>
@@ -453,7 +520,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/model/wam-v/joint/right_propeller_joint/cmd_thrust</cmd_topic>
-      </control> -->
+      </control>
     </plugin>
 
   </model>
