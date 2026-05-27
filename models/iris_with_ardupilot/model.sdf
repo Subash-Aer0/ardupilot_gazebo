@@ -619,9 +619,24 @@
     -->
 
     <!-- plugins -->
+
+    <plugin
+  		filename="gz-sim-pose-publisher-system"
+  		name="gz::sim::systems::PosePublisher">
+
+  		<publish_link_pose>true</publish_link_pose>
+  		<publish_sensor_pose>true</publish_sensor_pose>
+  		<publish_nested_model_pose>true</publish_nested_model_pose>
+  		<use_pose_vector_msg>true</use_pose_vector_msg>
+  		<update_frequency>30</update_frequency>
+	</plugin>
+    
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
+	<!-- <plugin filename="gz-sim-odometry-system"
+		name="gz::sim::systems::OdometryPublisher">
+	</plugin> -->
     <plugin filename="gz-sim-lift-drag-system"
       name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
@@ -795,8 +810,9 @@
       <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
 
       <!-- Sensors -->
-      <imuName>iris_with_standoffs::imu_link::imu_sensor</imuName>
-
+      <!-- <imuName>iris_with_standoffs::imu_link::imu_sensor</imuName> -->
+    <imuName>imu_sensor</imuName>
+    <gpsName>navsat_sensor</gpsName>
       <!--
           incoming control command [0, 1]
           so offset it by 0 to get [0, 1]

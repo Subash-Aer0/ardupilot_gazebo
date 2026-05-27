@@ -187,10 +187,13 @@
       <sensor name="navsat_sensor" type="navsat">
         <always_on>1</always_on>
         <update_rate>30</update_rate>
+        <!-- <topic>navsat_iris</topic> -->
       </sensor>
 
+
+
       <sensor name="rgbd_forward_camera" type="rgbd_camera">
-        <pose>0.1 0 0 0 0 0</pose>  <!-- Position 1 meter above the origin -->
+        <pose>0.1 0 0 0 0.57 0</pose>  <!-- Position 1 meter above the origin -->
         <always_on>1</always_on>
         <update_rate>30</update_rate>
         <visualize>true</visualize>
@@ -226,6 +229,7 @@
           </depth_camera>
         </camera>
       </sensor>
+      
 
       <!-- Downward facing camera -->
 
@@ -268,6 +272,55 @@
       </sensor>
 
     </link>
+    
+    <link name="velodyne_link">
+    	<inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+  <sensor name="velodyne" type="gpu_lidar">
+  <pose>0 0 0 0 0 0</pose>
+    <frame_id>/iris/iris_with_standoffs/velodyne_link</frame_id>
+    <update_rate>10</update_rate>
+
+    <lidar>
+      <scan>
+        <horizontal>
+          <samples>1800</samples>
+          <min_angle>-3.14159</min_angle>
+          <max_angle>3.14159</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>16</samples>
+          <min_angle>-0.2618</min_angle>
+          <max_angle>0.2618</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.3</min>
+        <max>100.0</max>
+      </range>
+    </lidar>
+
+    <always_on>true</always_on>
+    <topic>/lidar</topic>
+  </sensor>
+</link>
+
+<joint name="velodyne_joint" type="fixed">
+  <parent>base_link</parent>
+  <child>velodyne_link</child>
+  <pose>0 0 0 0 0 0</pose>
+</joint>
+      
     <link name='imu_link'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -282,10 +335,11 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor" type="imu">
-        <gz_frame_id>imu_link</gz_frame_id>
+        <frame_id>imu_link</frame_id>
         <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
-        <update_rate>1000.0</update_rate>
+        <!-- <topic>imu_iris</topic> -->
+        <update_rate>200.0</update_rate>
       </sensor>
     </link>
     <joint name='imu_joint' type='revolute'>
@@ -298,7 +352,7 @@
           <upper>0</upper>
           <effort>0</effort>
           <velocity>0</velocity>
-        </limit>
+       </limit>
         <dynamics>
           <damping>1.0</damping>
         </dynamics>
@@ -600,5 +654,8 @@
         </ode>
       </physics>
     </joint>
+    
+    
+
   </model>
 </sdf>

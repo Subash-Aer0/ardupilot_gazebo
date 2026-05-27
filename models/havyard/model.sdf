@@ -101,6 +101,11 @@
           <izz>2235396753</izz>
         </inertia>
       </inertial>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <!-- <topic>navsat_iris</topic> -->
+      </sensor>
     </link>
 
     <!-- Engines -->
@@ -305,7 +310,7 @@
       <sensor name="imu_sensor" type="imu">
         <pose>0 0 0 3.141593 0 0</pose>
         <always_on>1</always_on>
-        <update_rate>1000.0</update_rate>
+        <update_rate>200.0</update_rate>
       </sensor>
     </link>
     <joint name="imu_joint" type="revolute">
@@ -365,6 +370,27 @@
       <min_thrust_cmd>-2000000.0</min_thrust_cmd>
     </plugin>
 
+
+
+    <!-- <plugin
+  		filename="gz-sim-pose-publisher-system"
+  		name="gz::sim::systems::PosePublisher">
+
+  		<publish_link_pose>true</publish_link_pose>
+  		<publish_sensor_pose>true</publish_sensor_pose>
+  		<publish_nested_model_pose>true</publish_nested_model_pose>
+  		<use_pose_vector_msg>true</use_pose_vector_msg>
+  		<update_frequency>30</update_frequency>
+	</plugin>
+    
+    <plugin filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+    </plugin> -->
+	<!-- <plugin filename="gz-sim-odometry-system"
+		name="gz::sim::systems::OdometryPublisher">
+	</plugin> -->
+
+
     <!-- Hydrodynamics plugin -->
     <plugin
       filename="gz-waves1-hydrodynamics-system"
@@ -386,7 +412,7 @@
     </plugin>
 
     <!-- ArduPilot plugin -->
-    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+    <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
       <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9012</fdm_port_in>
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
@@ -394,11 +420,12 @@
       <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
       <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED>
       <imuName>imu_sensor</imuName>
+      <gpsName>navsat_sensor</gpsName>
 
       <!--
         SERVO1_FUNCTION 26 (GroundSteering)
       -->
-      <!-- <control channel="0">
+      <control channel="0">
         <jointName>left_engine_joint</jointName>
         <useForce>1</useForce>
         <multiplier>1.5707963267948966</multiplier>
@@ -429,12 +456,12 @@
         <i_min>0</i_min>
         <cmd_max>1000000.0</cmd_max>
         <cmd_min>-1000000.0</cmd_min>
-      </control> -->
+      </control>
 
       <!--
         SERVO3_FUNCTION 70 (Throttle)
       -->
-      <!-- <control channel="2">
+      <control channel="2">
         <jointName>left_propeller_joint</jointName>
         <useForce>1</useForce>
         <multiplier>2000000</multiplier>
@@ -453,7 +480,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/model/wam-v/joint/right_propeller_joint/cmd_thrust</cmd_topic>
-      </control> -->
+      </control>
     </plugin>
 
   </model>
